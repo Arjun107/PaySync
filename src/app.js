@@ -13,4 +13,5 @@ app.get("/",(req,res)=>res.send("PaySync backend running"));
 
 app.use("/api/users",userRoutes);
 
+
 module.exports=app;
