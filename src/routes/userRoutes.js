@@ -4,11 +4,12 @@ const { registeruser } = require("../controllers/userController");
 const { loginUser } = require("../controllers/authController");
 const authmiddle = require("../middleware/authmiddleware");
 const { profile } = require("../controllers/profileController");
-
+const rolemiddle = require("../middleware/rolemiddleware");
+const { updatecontroller } = require("../controllers/userupdatecontroller");
 
 router.post("/register", registeruser);
-router.post("/login", loginUser)
-router.get("/profile",authmiddle,profile)
+router.patch("/update", updatecontroller);
+router.post("/login", loginUser);
+router.get("/profile", authmiddle,rolemiddle, profile);
 
 module.exports = router;
-
